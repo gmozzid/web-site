@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8" />
+	<title> 나만의 공간, 자취방 </title>
+	<link rel="stylesheet" href="css/animate.css" />
+	<link rel="stylesheet" href="css/default.css" />
+	<script src="js/jquery-2.2.4.min.js"></script>
+	<script src="js/ui.js"></script>
+</head>
+<body>
+
+	<!-- s: header -->
+	<header id="header_container">
+		<a href="#" class="btn_gnb"><img src="images/btn_menu01.png" width="56" height="45" alt="메뉴 열기" /></a>
+		<div class="header_inner">
+			<h1 class="hidden_obj">나만의 공간, 자취방</h1>
+			<nav class="gnb_wrap">
+				<h2>MENU</h2>
+				<ul>
+					<li><a href="che.html">자취방 체크리스트</a></li>
+					<li><a href="lif.html">자취방 반려생물</a></li>
+					<li><a href="cri.html">자취방 방범용품</a></li>
+				</ul>
+			</nav>
+			<a href="#" class="btn_close"><img src="images/btn_close01.png" width="34" height="34" alt="메뉴 닫기" /></a>
+		</div>
+	</header>
+	<!-- e: header -->
+
+	<!-- s: main -->
+	<section id="body_container" class="sub che">
+
+		<link rel="stylesheet" href="css/jquery.fullpage.css" />
+		<script src="js/jquery.fullpage.min.js"></script>
+		<script type="text/javascript">
+			$(document).ready(function() {
+				$('#fullpage').fullpage({
+					sectionSelector: '.content_section',
+					anchors: ['intro', 'section01', 'section02', 'section03'],
+					menu: '#pageNavi',
+					onLeave: function(idx, nextIdx, dir){
+						// console.log(idx, nextIdx, dir);
+					},
+					afterLoad: function(link, idx){
+						// console.log(link, idx, !idx);
+						var $page = $(".pageNavi_wrap");
+
+						var $section = $(".content_section:not(.intro)");
+						var $thisSection = $(".content_section").eq(idx-1);
+
+						// intro
+						if( idx == 1 ){
+							$page.hide();
+							$section.find(".title, .cont .item").css("opacity",0);
+							$section.find(".title, .cont .item").removeClass("animated fadeInUp");
+						// section
+						} else {
+							$page.show();
+							$thisSection.find(".title, .cont .item").css("opacity",1);
+							$thisSection.find(".title, .cont .item").addClass("animated fadeInUp");
+						}
+					}
+				});
+			});
+		</script>
+
+
+
+		<div class="che_inner" id="fullpage" style="height:100%;">
+
+			<!-- s: intro -->
+			<div class="content_section intro">
+				<div class="animated fadeInUp">
+					<h2 class="title"><img src="images/che/tit_intro01.png" width="350" height="43" alt="자취방 체크리스트" /></h2>
+					<p class="desc">
+						자취방에 필요한 물건들을 지금부터 하나씩 체크해볼까요?<br />
+						당장은 쓸모 없다고 느낄 수 있어도, 분명 큰 도움이 될 거예요.
+					</p>
+				</div>
+				<div class="bg animated fadeInUp"><img src="images/che/layer_intro01.png" width="880" height="550" /></div>
+				<a href="index.html" class="btn_home"><img src="images/btn_home01.png" width="71" height="64" alt="홈으로 가기" /></a>
+			</div>
+			<!-- e: intro -->
+
+			<!-- s: 청소 -->
+			<div class="content_section section01">
+				<h3 class="title"><img src="images/che/tit_section01.png" width="81" height="43" alt="청소" /></h3>
+				<ul class="cont">
+					<li class="item">
+						<div class="chkBox"><input type="checkbox" id="opt1_1" /><label for="opt1_1">체크</label></div>
+						<div class="ct"><img src="images/che/img_content01_01.png" width="400" height="560" /></div>
+					</li>
+					<li class="item">
+						<div class="chkBox"><input type="checkbox" id="opt1_2" /><label for="opt1_2">체크</label></div>
+						<div class="ct"><img src="images/che/img_content01_02.png" width="410" height="560" /></div>
+					</li>
+					<li class="item">
+						<div class="chkBox"><input type="checkbox" id="opt1_3" /><label for="opt1_3">체크</label></div>
+						<div class="ct"><img src="images/che/img_content01_03.png" width="400" height="560" /></div>
+					</li>
+				</ul>
+			</div>
+			<!-- e: 청소 -->
+
+			<!-- s: 서랍 -->
+			<div class="content_section section02">
+				<h3 class="title"><img src="images/che/tit_section02.png" width="81" height="43" alt="청소" /></h3>
+				<ul class="cont">
+					<li class="item">
+						<div class="chkBox"><input type="checkbox" id="opt2_1" /><label for="opt2_1">체크</label></div>
+						<div class="ct"><img src="images/che/img_content02_01.png" width="400" height="560" /></div>
+					</li>
+					<li class="item">
+						<div class="chkBox"><input type="checkbox" id="opt2_2" /><label for="opt2_2">체크</label></div>
+						<div class="ct"><img src="images/che/img_content02_02.png" width="410" height="560" /></div>
+					</li>
+					<li class="item">
+						<div class="chkBox"><input type="checkbox" id="opt2_3" /><label for="opt2_3">체크</label></div>
+						<div class="ct"><img src="images/che/img_content02_03.png" width="400" height="560" /></div>
+					</li>
+				</ul>
+			</div>
+			<!-- e: 서랍 -->
+
+			<!-- s: 부엌 -->
+			<div class="content_section section03">
+				<h3 class="title"><img src="images/che/tit_section03.png" width="81" height="43" alt="청소" /></h3>
+				<ul class="cont">
+					<li class="item">
+						<div class="chkBox"><input type="checkbox" id="opt3_1" /><label for="opt3_1">체크</label></div>
+						<div class="ct"><img src="images/che/img_content03_01.png" width="460" height="560" /></div>
+					</li>
+					<li class="item">
+						<div class="chkBox"><input type="checkbox" id="opt3_2" /><label for="opt3_2">체크</label></div>
+						<div class="ct"><img src="images/che/img_content03_02.png" width="470" height="560" /></div>
+					</li>
+					<li class="item">
+						<div class="chkBox"><input type="checkbox" id="opt3_3" /><label for="opt3_3">체크</label></div>
+						<div class="ct"><img src="images/che/img_content03_03.png" width="460" height="560" /></div>
+					</li>
+				</ul>
+			</div>
+			<!-- e: 부엌 -->
+
+		</div>
+
+
+
+		<!-- s: 네비게이션 -->
+		<div class="pageNavi_wrap">
+			<ul id="pageNavi">
+				<li data-menuanchor="intro"><a href="#intro"><span>intro</span></a></li>
+				<li data-menuanchor="section01"><a href="#section01"><span>청소</span></a></li>
+				<li data-menuanchor="section02"><a href="#section02"><span>서랍</span></a></li>
+				<li data-menuanchor="section03"><a href="#section03"><span>부엌</span></a></li>
+			</ul>
+		</div>
+		<!-- e: 네비게이션 -->
+
+
+	</section>
+	<!-- e: main -->
+
+</body>
+</html>

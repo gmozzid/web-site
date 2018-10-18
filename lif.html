@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8" />
+	<title> 나만의 공간, 자취방 </title>
+	<link rel="stylesheet" href="css/animate.css" />
+	<link rel="stylesheet" href="css/default.css" />
+	<script src="js/jquery-2.2.4.min.js"></script>
+	<script src="js/ui.js"></script>
+</head>
+<body>
+
+	<!-- s: header -->
+	<header id="header_container">
+		<a href="#" class="btn_gnb"><img src="images/btn_menu01.png" width="56" height="45" alt="메뉴 열기" /></a>
+		<div class="header_inner">
+			<h1 class="hidden_obj">나만의 공간, 자취방</h1>
+			<nav class="gnb_wrap">
+				<h2>MENU</h2>
+				<ul>
+					<li><a href="che.html">자취방 체크리스트</a></li>
+					<li><a href="lif.html">자취방 반려생물</a></li>
+					<li><a href="cri.html">자취방 방범용품</a></li>
+				</ul>
+			</nav>
+			<a href="#" class="btn_close"><img src="images/btn_close01.png" width="34" height="34" alt="메뉴 닫기" /></a>
+		</div>
+	</header>
+	<!-- e: header -->
+
+	<!-- s: main -->
+	<section id="body_container" class="sub lif">
+
+		<link rel="stylesheet" href="css/jquery.fullpage.css" />
+		<script src="js/jquery.fullpage.min.js"></script>
+		<script type="text/javascript">
+			$(document).ready(function() {
+				$('#fullpage').fullpage({
+					sectionSelector: '.content_section',
+					anchors: ['intro', 'section01', 'section02'],
+					menu: '#pageNavi',
+					onLeave: function(idx, nextIdx, dir){
+						// console.log(idx, nextIdx, dir);
+					},
+					afterLoad: function(link, idx){
+						// console.log(link, idx, !idx);
+						var $page = $(".pageNavi_wrap");
+
+						var $section = $(".content_section:not(.intro)");
+						var $thisSection = $(".content_section").eq(idx-1);
+
+						// intro
+						if( idx == 1 ){
+							$page.hide();
+							$section.find(".title, .bg").css("opacity",0);
+							$section.find(".title, .bg").removeClass("animated fadeInUp");
+						// section
+						} else {
+							$page.show();
+							$thisSection.find(".title, .bg").css("opacity",1);
+							$thisSection.find(".title, .bg").addClass("animated fadeInUp");
+						}
+					}
+				});
+			});
+		</script>
+
+
+
+		<div class="che_inner" id="fullpage" style="height:100%;">
+
+			<!-- s: intro -->
+			<div class="content_section intro">
+				<h2 class="title animated fadeInUp"><img src="images/lif/tit_intro01.png" width="940" height="180" /></h2>
+				<div class="bg animated fadeInUp"><img src="images/lif/img_intro01.png" width="940" height="640" /></div>
+				<a href="index.html" class="btn_home"><img src="images/btn_home01.png" width="71" height="64" alt="홈으로 가기" /></a>
+			</div>
+			<!-- e: intro -->
+
+			<!-- s: 반려동물 -->
+			<div class="content_section section01">
+				<h2 class="title"><img src="images/lif/tit_section01.png" width="940" height="180" alt="반려동물" /></h2>
+				<div class="bg"><img src="images/lif/img_section01.png" width="1300" height="640" /></div>
+			</div>
+			<!-- e: 반려동물 -->
+
+			<!-- s: 반려식물 -->
+			<div class="content_section section02">
+				<h2 class="title"><img src="images/lif/tit_section02.png" width="940" height="180" alt="반려식물" /></h2>
+				<div class="bg"><img src="images/lif/img_section02.png" width="1300" height="640" /></div>
+			</div>
+			<!-- e: 반려식물 -->
+
+		</div>
+
+
+
+		<!-- s: 네비게이션 -->
+		<div class="pageNavi_wrap">
+			<ul id="pageNavi">
+				<li data-menuanchor="intro"><a href="#intro"><span>intro</span></a></li>
+				<li data-menuanchor="section01"><a href="#section01"><span>반려동물</span></a></li>
+				<li data-menuanchor="section02"><a href="#section02"><span>반려식물</span></a></li>
+			</ul>
+		</div>
+		<!-- e: 네비게이션 -->
+
+
+	</section>
+	<!-- e: main -->
+
+</body>
+</html>

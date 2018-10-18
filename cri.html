@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8" />
+	<title> 나만의 공간, 자취방 </title>
+	<link rel="stylesheet" href="css/animate.css" />
+	<link rel="stylesheet" href="css/default.css" />
+	<script src="js/jquery-2.2.4.min.js"></script>
+	<script src="js/ui.js"></script>
+</head>
+<body>
+
+	<!-- s: header -->
+	<header id="header_container">
+		<a href="#" class="btn_gnb"><img src="images/btn_menu01.png" width="56" height="45" alt="메뉴 열기" /></a>
+		<div class="header_inner">
+			<h1 class="hidden_obj">나만의 공간, 자취방</h1>
+			<nav class="gnb_wrap">
+				<h2>MENU</h2>
+				<ul>
+					<li><a href="che.html">자취방 체크리스트</a></li>
+					<li><a href="lif.html">자취방 반려생물</a></li>
+					<li><a href="cri.html">자취방 방범용품</a></li>
+				</ul>
+			</nav>
+			<a href="#" class="btn_close"><img src="images/btn_close01.png" width="34" height="34" alt="메뉴 닫기" /></a>
+		</div>
+	</header>
+	<!-- e: header -->
+
+	<!-- s: main -->
+	<section id="body_container" class="sub cri">
+
+		<link rel="stylesheet" href="css/jquery.fullpage.css" />
+		<script src="js/jquery.fullpage.min.js"></script>
+		<script type="text/javascript">
+			$(document).ready(function() {
+				$('#fullpage').fullpage({
+					sectionSelector: '.content_section',
+					anchors: ['intro', 'section01', 'section02', 'section03'],
+					menu: '#pageNavi',
+					onLeave: function(idx, nextIdx, dir){
+						// console.log(idx, nextIdx, dir);
+					},
+					afterLoad: function(link, idx){
+						// console.log(link, idx, !idx);
+						var $page = $(".pageNavi_wrap");
+
+						var $section = $(".content_section:not(.intro)");
+						var $thisSection = $(".content_section").eq(idx-1);
+
+						// intro
+						if( idx == 1 ){
+							$page.hide();
+							$section.find(".title, .cont .item").css("opacity",0);
+							$section.find(".title, .cont .item").removeClass("animated fadeInUp");
+						// section
+						} else {
+							$page.show();
+							$thisSection.find(".title, .cont .item").css("opacity",1);
+							$thisSection.find(".title, .cont .item").addClass("animated fadeInUp");
+						}
+					}
+				});
+			});
+		</script>
+
+
+
+		<div class="che_inner" id="fullpage" style="height:100%;">
+
+			<!-- s: intro -->
+			<div class="content_section intro">
+				<div class="animated fadeInUp">
+					<h2 class="title"><img src="images/cri/tit_intro01.png" width="350" height="43" alt="자취방 방범용품" /></h2>
+					<p class="desc">
+						혼자 사는 집, 언제 위험에 노출될까 불안하시다고요?<br />
+						당신에게 안전한 공간을 보장할 방범용품을 사용해보세요.
+					</p>
+				</div>
+				<div class="bg animated fadeInUp"><img src="images/cri/layer_intro01.png" width="880" height="550" /></div>
+				<a href="index.html" class="btn_home"><img src="images/btn_home01.png" width="71" height="64" alt="홈으로 가기" /></a>
+			</div>
+			<!-- e: intro -->
+
+			<!-- s: 청소 -->
+			<div class="content_section section01">
+				<div class="bg"><img src="images/cri/img_section01.png" width="1300" height="640" /></div>
+			</div>
+			<!-- e: 청소 -->
+
+			<!-- s: 서랍 -->
+			<div class="content_section section02">
+				<div class="bg"><img src="images/cri/img_section02.png" width="1300" height="640" /></div>
+			</div>
+			<!-- e: 서랍 -->
+
+			<!-- s: 부엌 -->
+			<div class="content_section section03">
+				<div class="bg"><img src="images/cri/img_section03.png" width="1300" height="640" /></div>
+			</div>
+			<!-- e: 부엌 -->
+
+		</div>
+
+
+
+		<!-- s: 네비게이션 -->
+		<div class="pageNavi_wrap">
+			<ul id="pageNavi">
+				<li data-menuanchor="intro"><a href="#intro"><span>intro</span></a></li>
+				<li data-menuanchor="section01"><a href="#section01"><span>청소</span></a></li>
+				<li data-menuanchor="section02"><a href="#section02"><span>서랍</span></a></li>
+				<li data-menuanchor="section03"><a href="#section03"><span>부엌</span></a></li>
+			</ul>
+		</div>
+		<!-- e: 네비게이션 -->
+
+
+	</section>
+	<!-- e: main -->
+
+</body>
+</html>
